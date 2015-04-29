@@ -1,0 +1,243 @@
+/* LAYOUT
+----------------------------------------*/
+
+// .error {
+//   box-shadow: 0 1px 3px $belfius-red !important;
+// }
+
+// .success {
+//   box-shadow: 0 1px 3px $belfius-green !important;
+// }
+
+// .about{
+// 	color:$belfius-light-grey;
+// }
+
+// .item.item-select{
+// 	@include rounded(100px);
+// 	height:60px !important;
+// 	width:320px;
+// 	margin-left: auto;
+// 	margin-right: auto;
+// 	display: block;
+
+// }
+
+// .belfius-success{
+// 	font-family: $headings-font-family;
+// 	color:$belfius-green;
+// 	font-weight:500;
+// }
+
+// .belfius-error{
+// 	font-family: $headings-font-family;
+// 	color:$belfius-red;
+// 	font-weight:500;
+// }
+
+// .input-label{
+// 	font-size:18px;
+// 	padding: 8px 0px 0px 10px !important;
+// }
+
+// .card{
+// 	border:none !important;
+// 	box-shadow:none !important;
+// }
+
+// .inner-card{
+// 	width:320px;
+// 	margin-left: auto;
+// 	margin-right: auto;
+// 	display: block;
+
+// 	a{
+// 		text-decoration:none;
+// 	}
+// }
+
+// .list{
+// 	.item-content{
+// 		padding: 2em 0em 2em 1em !important;
+// 	}
+
+// 	a.item-content{
+// 		font-size: $big-font-size !important;
+// 	}
+// }
+
+// i{
+// 	margin-right:0.2em !important;
+// }
+
+// #container{
+// 	width:100%;
+// 	text-align:center;
+
+// 	p{
+// 		margin-left:auto;
+// 		margin-right:auto;
+// 		display: block;
+// 		width: 100%;
+
+// 		@media (min-width: $tablet-landscape){
+// 			width:40em;
+// 		}
+// 	}
+// }
+
+// #edit-link{
+// 	font-size:inherit;
+// }
+
+// #user-img{
+// 	text-align:center;
+	
+// 	img{
+// 	    max-width: 10em;
+// 	    max-height: 10em;
+// 	    width: 100%;
+// 	    height: 100%;
+// 	    border-radius: $item-avatar-border-radius;
+// 		margin-top: 2em;
+		
+// 		@media (min-width: $tablet-portrait){
+// 			max-width: 15em;
+// 	    	max-height: 15em;
+// 		}
+// 	}
+// }
+
+// #login-img{
+// 	text-align:center;
+
+// 	img{
+// 		width: 15em;
+// 		margin: 1em 0em;
+// 		@include my-pad();
+
+// 		@media (min-width: $tablet-portrait){
+// 			width: 25em;
+// 			margin: 3em 0em;
+// 		}
+// 	}
+// }
+
+// .medium-img{
+// 	text-align:center;
+// 	margin: 1em 0em;
+
+// 	img{
+// 		width: 15em;
+// 		@include my-pad();
+
+// 		@media (min-width: $tablet-portrait){
+// 			width: 15em;
+// 		}
+// 	}
+// }
+
+// .big-icon{
+// 	img{
+// 		width: 5em;
+// 		@include my-pad();
+
+// 		@media (min-width: $tablet-portrait){
+// 			width: 5em;
+// 		}
+// 	}
+// }
+
+// .white-icon{
+// 	color:#FFF !important;
+// }
+
+// #password-toggle{
+// 	margin-top:1em;
+// 	text-align:center;
+// }
+
+// .emphasis{
+// 	font-family: "BelfiusBold", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+// 	font-weight:500;
+// }
+
+// .main-heading{
+// 	@include my-pad();
+// }
+
+// .item-input-set{
+// 	margin-left:0em !important;
+// 	margin-right:0em !important;
+// }
+
+// /* SEARCH
+// ----------------------------------------*/
+// #search-input {
+// 	height:60px;
+//   	text-align: center;
+//   	font-size: $big-font-size;
+//   	color: #444 !important;
+//   	@include rounded(100px);
+
+//   	i{
+//   		margin-left:2em;
+//   	}
+
+// 	input{
+// 		margin:0;
+// 		color: #444 !important;
+// 	}
+// }
+
+// #search-bar {
+//   background: none;
+//   position: absolute;
+//   width: 100%;
+//   top: 44px;
+//   height: 40px;
+//   z-index: 3;
+// }
+
+// #content {
+//   top: 44px;
+//   padding-top: 80px;
+// }
+
+// #content{
+
+// 	.item-content{
+// 		padding:10px 15px !important;
+// 		 border: 1px solid $assertive !important;
+// 		 margin: 0.8em 0.6em;
+// 		 @include rounded(100px);
+// 	}
+
+// 	.item{
+// 		border:none !important;
+// 	}
+// }
+
+// /* MISC
+// ----------------------------------------*/
+
+// .activated{
+// 	background: none !important;
+// 	@include rounded(100px);
+// }
+
+// .spinner svg {
+// 	width: 19% !important;
+// 	height: 85px !important;
+// }
+
+// #my-spinner{
+// 	p{
+// 		text-align:center !important;
+// 	}
+// }
+
+// .tab-item{
+// 	font-size:19px !important;
+// }
+

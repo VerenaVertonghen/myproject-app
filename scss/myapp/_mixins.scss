@@ -1,0 +1,11 @@
+@mixin rounded($pixels){
+	$radius: $pixels;
+	 -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -khtml-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin my-pad(){
+	padding: 0.4em;
+}
