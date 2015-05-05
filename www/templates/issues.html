@@ -1,0 +1,16 @@
+<ion-view view-title="Issues">
+  <ion-content padding="true">
+    <!-- <ion-list>
+      <ion-item ng-repeat="item in items" href="#/app/issues/{{item.id}}">
+        {{item.title}}
+      </ion-item>
+    </ion-list> -->
+    <div class="list">
+	    <a class="item item-avatar" ng-repeat="item in items" href="#/app/issues/{{item.id}}">
+	      <img src="img/design.png">
+	      <h2>{{item.title}}</h2>
+	      <p>Extra info.</p>
+	    </a>
+	</div>
+  </ion-content>
+</ion-view>

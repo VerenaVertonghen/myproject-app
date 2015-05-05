@@ -22,6 +22,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+  .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
 
   .state('app', {
     url: "/app",
@@ -30,42 +35,88 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.profile', {
+    url: "/profile",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html"
+        templateUrl: "templates/profile.html",
+        controller: 'LogoutCtrl'
       }
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.caretaker', {
+    url: "/caretaker",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/caretaker.html"
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
+
+  .state('app.theme', {
+    url: "/theme",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/theme.html"
+      }
+    }
+  })
+
+  .state('app.help', {
+    url: "/help",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/help.html"
+      }
+    }
+  })
+
+  .state('app.language', {
+    url: "/language",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/language.html"
+      }
+    }
+  })
+
+  .state('app.notifications', {
+    url: "/notifications",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notifications.html"
+      }
+    }
+  })
+
+  .state('app.progress', {
+    url: "/progress",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/progress.html"
+      }
+    }
+  })
+    .state('app.issues', {
+      url: "/issues",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/issues.html",
+          controller: 'IssuesCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.issue', {
+    url: "/issues/:issueId",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/issue.html",
+        controller: 'IssueCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });
