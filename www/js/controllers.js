@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
     { id: 2, title: 'Depression' },
     { id: 3, title: 'Anorexia' },
     { id: 4, title: 'Selfharm' },
-    { id: 5, title: 'Cancer' }
+    { id: 5, title: 'Low Self Esteem' }
   ];
 })
 
