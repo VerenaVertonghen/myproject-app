@@ -65,9 +65,9 @@ angular.module('starter.controllers', [])
 .controller('IssuesCtrl', function($scope) {
   $scope.items = [
     { id: 1, title: 'Anxiety' },
-    { id: 2, title: 'Depression' },
-    { id: 3, title: 'Anorexia' },
-    { id: 4, title: 'Selfharm' },
+    { id: 2, title: 'Stressed' },
+    { id: 3, title: 'Regular Grumpy' },
+    { id: 4, title: 'Morning Mood' },
     { id: 5, title: 'Low Self Esteem' }
   ];
 })

@@ -54,11 +54,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.theme', {
-    url: "/theme",
+  .state('app.settings', {
+    url: "/settings",
     views: {
       'menuContent': {
-        templateUrl: "templates/theme.html"
+        templateUrl: "templates/settings.html"
       }
     }
   })
