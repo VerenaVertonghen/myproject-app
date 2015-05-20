@@ -9,3 +9,7 @@
 @mixin my-pad(){
 	padding: 0.4em;
 }
+
+@mixin my-shadow($color){
+  box-shadow: 0 3px darken($color,10);
+}

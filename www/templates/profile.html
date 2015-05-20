@@ -4,10 +4,13 @@
 		<div id="user-img">
 		<img ng-src="img/smiley.png">
 		</div>
-		<h3>Verena Vertonghen</h3>
-	    <p>verena.vertonghen@gmail.com</p>
-    <p><a id="edit-link" href="#/edit" class="button icon-left ion-edit button-dark">Edit</a></p>
-     <button class="button button-assertive icon ion-log-out" ng-click="logout()">
+		<h3 class="cap">{{singleUser.firstname}} {{singleUser.lastname}}</h3>
+	    <p>{{singleUser.email}}</p>
+    <!-- <p><a id="edit-link" href="#/edit" class="button icon-left ion-edit button-dark">Edit</a></p> -->
+    <button class="button button-block button-positive ion-ios-heart" ng-click="saveSettings()">
+		Express your feelings
+	</button> 
+     <button class="button button-block button-assertive icon ion-log-out" ng-click="logout()">
 		Logout
 	</button>
 	</div>

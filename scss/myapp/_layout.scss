@@ -5,6 +5,10 @@ h1{
 	text-align:center;
 }
 
+.center{
+	text-align:center;
+}
+
 .profile-top{
 	margin-bottom: 0;
 }
@@ -25,7 +29,6 @@ h1{
 		border:none;
 	}
 }
-
 
 #container{
 	width:100%;
@@ -64,6 +67,19 @@ h1{
 #password-toggle{
 	margin-top:1em;
 	text-align:center;
+
+	.item{
+		border:none;
+		width: 16em;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+	.item-checkbox{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 #menu-content{
@@ -76,11 +92,31 @@ h1{
 	}
 }
 
+#register-img{
+	text-align:center;
+
+	img{
+		width: 6em;
+		margin: 1em 0em;
+		@include my-pad();
+
+		@media (min-width: $tablet-portrait){
+			width: 25em;
+			margin: 3em 0em;
+		}
+	}
+}
+
+// .buttons{
+// 	padding-left:0.5em;
+// 	padding-right:0.5em;
+// }
+
 #login-img{
 	text-align:center;
 
 	img{
-		width: 15em;
+		width: 10em;
 		margin: 1em 0em;
 		@include my-pad();
 

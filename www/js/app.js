@@ -4,7 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', 
+['ionic', 'base64', 'ui.router', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,13 +21,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
+.constant("apiUrl","http://careapp.eu-gb.mybluemix.net")
+.constant("admin","admin.admin@gmail.com:1234")
+.constant("user","user.user@gmail.com:1234")
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
-    })
+  })
+
+  .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller: 'RegisterCtrl'
+  })
 
   .state('app', {
     url: "/app",
@@ -40,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/profile.html",
-        controller: 'LogoutCtrl'
+        controller: 'UserCtrl'
       }
     }
   })
@@ -90,33 +101,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.progress', {
-    url: "/progress",
+  .state('app.states', {
+    url: "/states",
     views: {
       'menuContent': {
-        templateUrl: "templates/progress.html"
-      }
-    }
-  })
-    .state('app.issues', {
-      url: "/issues",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/issues.html",
-          controller: 'IssuesCtrl'
-        }
-      }
-    })
-
-  .state('app.issue', {
-    url: "/issues/:issueId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/issue.html",
-        controller: 'IssueCtrl'
+        templateUrl: "templates/states.html",
+        controller: 'StateCtrl'
       }
     }
   });
+  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/register');
 });

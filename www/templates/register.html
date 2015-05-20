@@ -1,0 +1,43 @@
+<ion-view title="Registreer" left-buttons="leftButtons" right-buttons="rightButtons">
+  <ion-content has-header="true" padding="true">
+    <div id="register-img"><img src="img/heart.png"></div>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Email:</span>
+        <input type="text" ng-model="user.email">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">First name:</span>
+        <input type="text" ng-model="user.firstname">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Last name:</span>
+        <input type="text" ng-model="user.lastname">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password:</span>
+        <input type="{{inputType}}"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password:</span>
+        <input type="{{inputType}}"/>
+      </label>
+      <div id="password-toggle">
+        <li class="item item-checkbox">
+          <label class="checkbox" >
+            <input type="checkbox" ng-click="hideShowPassword()"/>
+          </label>
+          Show password
+        </li>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="button button-block button-positive ion-android-create" ng-click="register(user)">
+        Signup
+      </button>
+      <button class="button button-block button-dark ion-arrow-right-c " ng-click="toLogin()">
+        Go to login
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -26,11 +26,30 @@
     src: url("../fonts/Montserrat-Hairline.otf");
 }
 
+@font-face {
+    font-family: "LatoBold";
+    src: url("../fonts/Lato-Bold.ttf");
+}
+
+@font-face {
+    font-family: "LatoRegular";
+    src: url("../fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "LatoLight";
+    src: url("../fonts/Lato-Light.ttf");
+}
+
 $black-font: 'MontserratBlack', Helvetica, Arial, sans-serif;
 $bold-font: 'MontserratBold', Helvetica, Arial, sans-serif;
 $regular-font: 'MontserratRegular', Helvetica, Arial, sans-serif;
 $light-font: 'MontserratLight', Helvetica, Arial, sans-serif;
 $hairline-font: 'MontserratHairline', Helvetica, Arial, sans-serif;
+
+$lato-light-font: 'LatoLight', Helvetica, Arial, sans-serif;
+$lato-regular-font: 'LatoRegular', Helvetica, Arial, sans-serif;
+$lato-bold-font: 'LatoBold', Helvetica, Arial, sans-serif;
 
 // MY VARIABLES
 // -------------------------------
@@ -41,10 +60,7 @@ $hairline-font: 'MontserratHairline', Helvetica, Arial, sans-serif;
 // //Secondary colours
 // $lemon: 					#ebff3b;
 
-//Primary colours
-$dark-blue:                 #021022;
-$yellow:                    #e7f99d;
-$red:                       #da4453;
+
 
 // Color swatches FLAT UI
 $turquoise:                 #1abc9c;
@@ -97,6 +113,12 @@ $white: 					#FFFFFF;
 $black: 					#000000;
 $gray-dark:                 $concrete;
 $gray-light:                $silver;
+
+//Primary colours
+//$dark-blue:                 #021022;
+$dark-blue:                 #112539;
+$yellow:                    #e7f99d;
+$red:                       #da4453;
 
 //image
 $my-avatar:75px;
@@ -182,7 +204,8 @@ $scroll-refresh-icon-color:       #666666 !default;
 $button-color:                    #222 !default;
 $button-block-margin:             10px !default;
 $button-clear-padding:            6px !default;
-$button-border-radius:            0px !default;
+
+$button-border-radius:            4px !default;
 $button-border-width:             0px !default;
 
 $button-font-size:                16px !default;
