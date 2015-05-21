@@ -57,18 +57,18 @@ angular.module('starter.services', [])
 		};
 
 		
-		function getUser($username,$password){
+		function getUser($email,$password){
 			console.log("into Service getUser");
 			console.log("user",user);
 			console.log("apiUrl",apiUrl);
-			console.log("$username",$username);
+			console.log("$email",$email);
 			console.log("$password",$password);
 
 	        var request = $http({
 	            method: "get",
 	            url: apiUrl+"/myprofile",
 	            headers: {
-	            	'Authorization': 'Basic '+ $base64.encode($username+":"+$password)
+	            	'Authorization': 'Basic '+ $base64.encode($email+":"+$password)
 		        }
 	        });
 

@@ -28,5 +28,12 @@
         Go to signup
       </button>
     </div>
+
+    <div ng-show="loginError" class="card alert">
+      <div class="item item-text-wrap">
+        The login failed. Did you fill in the correct information?
+      </div>
+    </div>
+    <!-- <div ng-show="loginError">The login failed. Did you fill in the correct information?</div> -->
   </ion-content>
 </ion-view>

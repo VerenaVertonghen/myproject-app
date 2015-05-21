@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', 
-['ionic', 'base64', 'ui.router', 'starter.controllers', 'starter.services'])
+['ionic', 'base64', 'ui.router', 'starter.controllers', 'starter.services','LocalStorageModule'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

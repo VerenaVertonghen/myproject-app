@@ -48,16 +48,29 @@ angular.module('starter.controllers', [])
 
 }])
 
-.controller('UserCtrl', ['$scope','$state','UserService',
-  function($scope, $state, UserService) {
+.controller('UserCtrl', ['$scope','$state','UserService','localStorageService',
+  function($scope, $state, UserService, localStorageService) {
     console.log('into UserCtrl');
 
     $scope.singleUser = [];
 
-    loadUser();
+    var email = "";
+    var password = "";
+
+    
+
+    getLocalStorage();
+
+    function getLocalStorage(){
+      email = localStorageService.get("ls-email");
+      password = localStorageService.get("ls-password");
+      console.log("var email",email);
+    console.log("var password",password);
+      loadUser();
+    }
 
     function loadUser() {
-      var result = UserService.getUser();
+      var result = UserService.getUser(email,password);
       result.success(getUserSuccess).error(getUserError);
     }
 
@@ -72,6 +85,7 @@ angular.module('starter.controllers', [])
 
     $scope.logout = function() {
       console.log('Log-out');
+      localStorageService.clearAll();
       $state.go('login');
     };
 
@@ -85,79 +99,78 @@ angular.module('starter.controllers', [])
 
 }])
 
-.controller('LoginCtrl',['$scope','$state','UserService', 
-  function($scope, $state, UserService) {
+.controller('LoginCtrl',['$scope','$state','UserService','localStorageService', 
+  function($scope, $state, UserService,localStorageService) {
 
-    $scope.user = {};
+  var storageType = localStorageService.getStorageType();
 
-    function getUserSuccess(success){
-      $scope.singleUser = success;
-      console.log($scope.singleUser);
-      $state.go('app.profile');
+  // function submit(key, val) {
+  //  return localStorageService.set(key, val);
+  // }
+
+  // function getItem(key) {
+  //  return localStorageService.get(key);
+  // }
+
+  // var lsKeys = localStorageService.keys();
+
+  $scope.user = {};
+  $scope.loginError = false;
+
+  getLocalStorage();
+
+    function getLocalStorage(){
+      email = localStorageService.get("ls-email");
+      password = localStorageService.get("ls-password");
+      console.log("localStorageService:");
+      console.log("var email",email);
+    console.log("var password",password);
     }
 
-    function getUserError(error){
-      $scope.error = error;
-      $state.go('login');
-      $scope.errormessage = "Login failed.";
-      console.log($scope.errormessage);
-    }
+  function getUserSuccess(success){
+    $scope.singleUser = success;
+    console.log($scope.singleUser);
+    console.log("username value",$scope.singleUser.email);
+    localStorageService.set("ls-email",$scope.singleUser.email);
+    localStorageService.set("ls-password",$scope.singleUser.password);
+    $state.go('app.profile');
+  }
 
-    $scope.login = function(user) {
-      console.log("login username",user.username);
-      console.log("login password",user.password);
-      var result = UserService.getUser(user.username,user.password);
-      result.success(getUserSuccess).error(getUserError);
+  function getUserError(error){
+    $scope.error = error;
+    $state.go('login');
+    $scope.loginError = true;
+    console.log($scope.errormessage);
+  }
 
-      console.log('Log-in', user);
-      //loadUser();
-    };
+  $scope.login = function(user) {
+    console.log("login username",user.username);
+    console.log("login password",user.password);
+    var result = UserService.getUser(user.username,user.password);
+    result.success(getUserSuccess).error(getUserError);
 
-    $scope.toRegister = function(){
-      console.log('Go to register');
-      $state.go('register');
-    }
+    console.log('Log-in', user);
+    //loadUser();
+  };
 
-    /*Show/hide password*/
-    // Set the default value of inputType
-    $scope.inputType = 'password';
-    
-    // Hide & show password function
-    $scope.hideShowPassword = function(){
-      if ($scope.inputType == 'password')
-        $scope.inputType = 'text';
-      else
-        $scope.inputType = 'password';
-    };
-    
-  }])
+  $scope.toRegister = function(){
+    console.log('Go to register');
+    $state.go('register');
+  }
 
-// .controller('LoginCtrl',['$scope','$state','ionic.utils', 
-//   function($scope, $state, ionic.utils) {
+  /*Show/hide password*/
+  // Set the default value of inputType
+  $scope.inputType = 'password';
   
-//   $scope.login = function(user) {
-//     console.log('Log-in', user);
-//     $state.go('app.profile');
-//   };
-
-//   $scope.toRegister = function(){
-//     console.log('Go to register');
-//     $state.go('register');
-//   }
-
-//   /*Show/hide password*/
-//   // Set the default value of inputType
-//   $scope.inputType = 'password';
+  // Hide & show password function
+  $scope.hideShowPassword = function(){
+    if ($scope.inputType == 'password')
+      $scope.inputType = 'text';
+    else
+      $scope.inputType = 'password';
+  };
   
-//   // Hide & show password function
-//   $scope.hideShowPassword = function(){
-//     if ($scope.inputType == 'password')
-//       $scope.inputType = 'text';
-//     else
-//       $scope.inputType = 'password';
-//   };
-  
-// }])
+}])
 
 .controller('RegisterCtrl',['$scope','$state', 
   function($scope, $state) {
