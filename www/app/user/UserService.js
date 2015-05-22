@@ -36,14 +36,19 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
             return request;
         }
 
-        function updateUserState($stateid) {
+        function updateUserState($encodedLogin,$stateid) {
             console.log("into Service createUser");
+            console.log("$encodedLogin",$encodedLogin);
+            console.log("$stateid",$stateid);
 
             var request = $http({
                 method: "put",
                 url: apiUrl + "/updateprofile",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                },
                 data: { 
-                    "state": $stateid
+                    "states": $stateid
                 }
             });
             return request;

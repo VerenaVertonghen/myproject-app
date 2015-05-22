@@ -22,6 +22,20 @@ angular.module('starter.StateService', []).factory('StateService', ['$http', '$q
             return request;
         }
 
+        // function getState($encodedLogin,$stateid) {
+        //     console.log("into Service getStates");
+        //     console.log("apiUrl", apiUrl);
+
+        //     var request = $http({
+        //         method: "get",
+        //         url: apiUrl + "/states",
+        //         headers: {
+        //             'Authorization': 'Basic ' + $encodedLogin
+        //         }
+        //     });
+        //     return request;
+        // }
+
         function getMyStates($encodedLogin) {
             console.log("into Service getMyStates");
             console.log("apiUrl", apiUrl);

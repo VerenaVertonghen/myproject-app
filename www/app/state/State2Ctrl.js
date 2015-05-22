@@ -1,5 +1,5 @@
-angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state', 'StateService', 'CategoryService', 'localStorageService',
-    function($scope, $state, StateService, CategoryService, localStorageService) {
+angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state', 'StateService', 'CategoryService','UserService', 'localStorageService',
+    function($scope, $state, StateService, CategoryService, UserService, localStorageService) {
         console.log('into State2Ctrl');
         
         $scope.allCategories = [];
@@ -14,6 +14,7 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
         var encodedlogin = "";
         var feeling = "";
         var catid = "";
+        var stateid = "";
 
         getLocalStorage();
 
@@ -27,6 +28,24 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
             console.log("ls-feeling",feeling);
             loadCategories();
 
+        }
+
+        function updateUser() {
+            console.log(encodedlogin);
+            var result = UserService.updateUserState(encodedlogin,stateid);
+            result.success(updateUserSuccess).error(updateUserError);
+        }
+
+        function updateUserSuccess(success) {
+            console.log("success");
+            $scope.state = success;
+            console.log($scope.state);
+            $state.go('app.statefinal');
+        }
+
+        function updateUserError(error) {
+            console.log("error");
+            $scope.error = error;
         }
 
         function loadCategories() {
@@ -55,7 +74,10 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
         function createStateSuccess(success){
             $scope.success = success;
             $scope.submitSuccess = true;
-            $state.go('app.statefinal');
+            console.log("$scope.success",$scope.success);
+            stateid = $scope.success._id;
+            updateUser();
+            
         }
 
         function createStateError(error){
