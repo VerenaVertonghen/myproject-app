@@ -5,7 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', 
-['ionic', 'base64', 'ui.router', 'starter.controllers', 'starter.services','LocalStorageModule'])
+['ionic', 'base64', 'ui.router','LocalStorageModule',
+  'starter.controllers', 'starter.services','starter.directives','starter.filters',
+  'starter.UserService','starter.StateService','starter.CategoryService','starter.NotificationService',
+  'starter.UserCtrl','starter.StateCtrl','starter.CategoryCtrl','starter.NotificationCtrl'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,8 +25,6 @@ angular.module('starter',
 })
 
 .constant("apiUrl","http://careapp.eu-gb.mybluemix.net")
-.constant("admin","admin.admin@gmail.com:1234")
-.constant("user","user.user@gmail.com:1234")
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -109,7 +110,49 @@ angular.module('starter',
         controller: 'StateCtrl'
       }
     }
-  });
+  })
+
+  .state('app.state1', {
+    url: "/state1",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/state1.html",
+        controller: 'State1Ctrl'
+      }
+    }
+  })
+
+  .state('app.state2', {
+    url: "/state2",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/state2.html",
+        controller: 'State2Ctrl'
+      }
+    }
+  })
+
+  .state('app.state3', {
+    url: "/state3",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/state3.html",
+        controller: 'State3Ctrl'
+      }
+    }
+  })
+
+  .state('app.statefinal', {
+    url: "/statefinal",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/statefinal.html",
+        controller: 'StateFinalCtrl'
+      }
+    }
+  })
+
+  ;
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/register');

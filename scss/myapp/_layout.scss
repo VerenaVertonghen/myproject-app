@@ -5,6 +5,39 @@ h1{
 	text-align:center;
 }
 
+#all-categories{
+	text-align: left;
+}
+
+#text{
+	background-color: $stable;
+	
+    width: 100%;
+    height: 20em;
+	//height: 90%;
+	padding:2em;
+	margin: auto;
+	//margin-top: 0em;
+}
+#talk{
+	.item{
+		border:none;
+	}
+
+	.item-avatar{
+		//padding-left:0;
+
+	}
+}
+
+.flash-alert{
+	background:$energized;
+	font-family:$lato-bold-font;
+	color:$light;
+	padding:1em 1em;
+	border-radius: $border-radius-base;
+}
+
 .center{
 	text-align:center;
 }

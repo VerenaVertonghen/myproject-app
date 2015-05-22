@@ -1,27 +1,45 @@
 <ion-view title="Registreer" left-buttons="leftButtons" right-buttons="rightButtons">
   <ion-content has-header="true" padding="true">
     <div id="register-img"><img src="img/heart.png"></div>
+    <form name="userForm" ng-submit="register(userForm.$valid)" novalidate>
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Email:</span>
-        <input type="text" ng-model="user.email">
+        <input type="email" ng-model="user.email" name="email">
       </label>
+      <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">You have to fill in a correct email address.</p>
+      <p ng-show="userForm.email.$error.email" class="help-block">This is not a correct email address.</p>
+      <p ng-show="userForm.email.$valid && !userForm.email.$pristine" class="success-block">Check!</p>
+      
       <label class="item item-input">
         <span class="input-label">First name:</span>
-        <input type="text" ng-model="user.firstname">
+        <input type="text" ng-model="user.firstname" name="firstname" ng-minlength="2" ng-maxlength="15" required>
       </label>
+      <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">You have to fill in your firstname.</p>
+      <p ng-show="userForm.firstname.$valid" class="success-block">Check!</p>
+
       <label class="item item-input">
         <span class="input-label">Last name:</span>
-        <input type="text" ng-model="user.lastname">
+        <input type="text" ng-model="user.lastname" name="lastname" ng-minlength="2" ng-maxlength="15" required>
       </label>
+      <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">You have to fill in your lastname.</p>
+      <p ng-show="userForm.lastname.$valid" class="success-block">Check!</p>
+
       <label class="item item-input">
         <span class="input-label">Password:</span>
-        <input type="{{inputType}}"/>
+        <input type="{{inputType}}" ng-model="user.password" name="password" ng-minlength="4" ng-maxlength="15" required/>
       </label>
+      <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">You have to fill in your password.</p>
+      <p ng-show="userForm.password.$valid" class="success-block">Check!</p>
+
       <label class="item item-input">
         <span class="input-label">Password:</span>
-        <input type="{{inputType}}"/>
+        <input type="{{inputType}}" ng-model="user.password2" name="password2" ng-minlength="4" ng-maxlength="15"  ng-equals="user.password" required/>
       </label>
+      <p ng-show="userForm.password2.$invalid && !userForm.password2.$pristine" class="help-block">You have to fill in your password.</p>
+      <p ng-show="userForm.password2.$dirty && userForm.password2.$error.equals" class="help-block">Your passwords don't match.</p>
+      <p ng-show="userForm.password2.$valid" class="success-block">Check!</p>
+
       <div id="password-toggle">
         <li class="item item-checkbox">
           <label class="checkbox" >
@@ -31,13 +49,16 @@
         </li>
       </div>
     </div>
-    <div class="buttons">
-      <button class="button button-block button-positive ion-android-create" ng-click="register(user)">
+
+      <button type="submit" ng-disabled="userForm.$invalid" class="button button-block button-positive ion-android-create">
         Signup
       </button>
+      </form>
       <button class="button button-block button-dark ion-arrow-right-c " ng-click="toLogin()">
         Go to login
       </button>
-    </div>
+      <div ng-show="submitError" class="flash-alert">
+          Signup failed, try again.
+      </div>
   </ion-content>
 </ion-view>

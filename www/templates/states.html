@@ -1,10 +1,20 @@
 <ion-view view-title="Expressions">
   <ion-content padding="true">
   	<div id="container">
-	    <button class="button button-block button-positive ion-ios-heart" ng-click="saveSettings()">
+	    <button class="button button-block button-positive ion-ios-heart" ng-click="expressFeelings()">
 			Express your feelings
 		</button> 
 	    <p>Your latest entries:</p>
+	    <div class="flash-alert" ng-show="allStates.length==0">
+	      <p>You don't have any entries yet.</p>
+	    </div>
+	    <div class="states" ng-repeat="state in allStates">
+		    <a class="item item-avatar">
+			    <img src="img/smiley.png">
+			    <h2>Feeling</h2>
+			    <p>{{state.text}}</p>
+		    </a>
+		</div>
     </div>
   </ion-content>
 </ion-view>

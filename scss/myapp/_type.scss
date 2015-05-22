@@ -13,3 +13,19 @@
 	color:$positive;
 	font-family:$lato-bold-font;
 }
+
+.help-block{
+	color:$assertive;
+	font-family:$lato-regular-font;
+	font-size:$font-size-small;
+	// margin-left:1.3em;
+	// margin-top:0.1em;
+	padding: 6px 0px 0px 16px;
+}
+
+.success-block{
+	color:$positive;
+	font-family:$lato-regular-font;
+	font-size:$font-size-small;
+	padding: 6px 0px 0px 16px;
+}
