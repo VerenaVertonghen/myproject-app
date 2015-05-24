@@ -3,7 +3,8 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
         return {
             getUser: getUser,
             createUser: createUser,
-            updateUserState: updateUserState
+            updateUserState: updateUserState,
+            addStateToUser: addStateToUser
         };
 
         function getUser($encodedLogin) {
@@ -15,6 +16,25 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
                 url: apiUrl + "/myprofile",
                 headers: {
                     'Authorization': 'Basic ' + $encodedLogin
+                }
+            });
+            return request;
+        }
+
+        function addStateToUser($encodedLogin,$stateid) {
+            console.log("into Service getMyStates");
+            console.log("apiUrl", apiUrl);
+            console.log("encodedLogin",$encodedLogin);
+            console.log("stateid",$stateid);
+
+            var request = $http({
+                method: "post",
+                url: apiUrl + "/addstatetouser",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                },
+                data: {
+                    'state':$stateid
                 }
             });
             return request;
@@ -48,7 +68,7 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
                     'Authorization': 'Basic ' + $encodedLogin
                 },
                 data: { 
-                    "states": $stateid
+                    "state": $stateid
                 }
             });
             return request;

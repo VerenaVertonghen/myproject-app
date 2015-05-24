@@ -8,10 +8,10 @@
 	    <div class="flash-alert" ng-show="allStates.length==0">
 	      <p>You don't have any entries yet.</p>
 	    </div>
-	    <div class="states" ng-repeat="state in allStates">
+	    <div class="states" ng-repeat="state in allStates | orderBy:'-created_at' | limitTo:10">
 		    <a class="item item-avatar">
-			    <img src="img/smiley.png">
-			    <h2>Feeling</h2>
+			    <img ng-src="img/expressions/{{state.category.name}}.png">
+			    <h2>{{state.category.name}}</h2>
 			    <p>{{state.text}}</p>
 		    </a>
 		</div>

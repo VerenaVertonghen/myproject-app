@@ -5,7 +5,6 @@ angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state',
         $scope.allStates = [];
         
         var encodedlogin = "";
-
         
         getLocalStorage();
 
@@ -15,19 +14,16 @@ angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state',
         }
 
         function loadStates() {
-            console.log(encodedlogin);
             var result = StateService.getMyStates(encodedlogin);
             result.success(getStatesSuccess).error(getStatesError);
         }
 
         function getStatesSuccess(success) {
-            console.log("success");
             $scope.allStates = success;
             console.log($scope.allStates);
         }
 
         function getStatesError(error) {
-            console.log("error");
             $scope.error = error;
         }
 

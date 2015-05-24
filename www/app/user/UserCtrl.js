@@ -1,17 +1,18 @@
-angular.module('starter.UserCtrl').controller('UserCtrl', ['$scope', '$state', 'UserService', 'localStorageService','$base64',
-    function($scope, $state, UserService, localStorageService,$base64) {
+angular.module('starter.UserCtrl').controller('UserCtrl', ['$scope', '$state', 'UserService', 'StateService', 'localStorageService','$base64',
+    function($scope, $state, UserService, StateService, localStorageService,$base64) {
         console.log('into UserCtrl');
         
         $scope.singleUser = [];
+        $scope.allStates = [];
         
         var encodedlogin = "";
         
         getLocalStorage();
 
-
         function getLocalStorage() {
             encodedlogin = localStorageService.get("ls-encoded");
             loadUser();
+            loadStates();
         }
 
         function loadUser() {
@@ -27,12 +28,26 @@ angular.module('starter.UserCtrl').controller('UserCtrl', ['$scope', '$state', '
             $scope.error = error;
         }
 
-        // Logout function
+        function loadStates() {
+            var result = StateService.getMyStates(encodedlogin);
+            result.success(getStatesSuccess).error(getStatesError);
+        }
+
+        function getStatesSuccess(success) {
+            $scope.allStates = success;
+        }
+
+        function getStatesError(error) {
+            $scope.error = error;
+        }
+
+        // Logout
         $scope.logout = function() {
             localStorageService.clearAll();
             $state.go('login');
         };
 
+        // Go to the first step to express your feelings
         $scope.expressFeelings = function(){
             $state.go('app.state1');
         };

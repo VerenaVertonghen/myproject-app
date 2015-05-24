@@ -10,23 +10,26 @@ angular.module('starter.UserCtrl').controller('LoginCtrl', ['$scope', '$state', 
         
         getLocalStorage();
 
+        // Get Local Storage Data
         function getLocalStorage() {
             password = localStorageService.get("ls-encoded");
         }
 
+        // Do this when getUser is a success
         function getUserSuccess(success) {
             $scope.singleUser = success;
             localStorageService.set("ls-encoded", encodedlogin);
             $state.go('app.profile');
         }
 
+        // Do this when getUser failed
         function getUserError(error) {
             $scope.error = error;
             $scope.loginError = true;
             $state.go('login');
         }
 
-        // Login function
+        // Login 
         $scope.login = function(user) {
             $scope.loginError = false;
             encodedlogin = $base64.encode(user.username + ":" + user.password);            
@@ -34,13 +37,13 @@ angular.module('starter.UserCtrl').controller('LoginCtrl', ['$scope', '$state', 
             result.success(getUserSuccess).error(getUserError);
         };
 
-        // Go to register function
+        // Go to register
         $scope.toRegister = function() {
             $scope.loginError = false;
             $state.go('register');
         }
 
-        // Hide & show password function
+        // Hide & show password
         $scope.hideShowPassword = function() {
             if ($scope.inputType == 'password') $scope.inputType = 'text';
             else $scope.inputType = 'password';

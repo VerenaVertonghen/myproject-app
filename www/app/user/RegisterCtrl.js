@@ -6,15 +6,18 @@ angular.module('starter.UserCtrl').controller('RegisterCtrl', ['$scope', '$state
         $scope.user = {};
         $scope.submitSuccess = false;
 
+        // Do this when createUser is a success
         function createUserSuccess(success){
             $scope.success = success;
             $scope.submitSuccess = true;
         }
 
+        // Do this when createUser failed
         function createUserError(error){
             $scope.error = error;
         }
 
+        // Register
         $scope.register = function(isValid) {
             if (isValid) {
                 var result = UserService.createUser($scope.user.email, $scope.user.firstname, $scope.user.lastname, $scope.user.password);
@@ -23,6 +26,7 @@ angular.module('starter.UserCtrl').controller('RegisterCtrl', ['$scope', '$state
             }
         };
 
+        // Go to Login
         $scope.toLogin = function() {
             $state.go('login');
         }

@@ -24,7 +24,7 @@ angular.module('starter',
   });
 })
 
-.constant("apiUrl","http://careapp.eu-gb.mybluemix.net")
+.constant("apiUrl","http://careapp2.eu-gb.mybluemix.net")
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
