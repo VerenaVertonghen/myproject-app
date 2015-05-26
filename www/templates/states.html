@@ -4,7 +4,7 @@
 	    <button class="button button-block button-positive ion-ios-heart" ng-click="expressFeelings()">
 			Express your feelings
 		</button> 
-	    <p>Your latest entries:</p>
+	    <p class="quote">Your latest entries:</p>
 	    <div class="flash-alert" ng-show="allStates.length==0">
 	      <p>You don't have any entries yet.</p>
 	    </div>
@@ -12,7 +12,7 @@
 		    <a class="item item-avatar">
 			    <img ng-src="img/expressions/{{state.category.name}}.png">
 			    <h2>{{state.category.name}}</h2>
-			    <p>{{state.text}}</p>
+			    <p class="quote">{{state.text}}</p>
 		    </a>
 		</div>
     </div>

@@ -5,6 +5,7 @@ angular.module('starter.StateCtrl').controller('State3Ctrl', ['$scope', '$state'
         $scope.allStates = [];
         $scope.message = "";
         $scope.input = {};
+        $scope.feeling = "";
 
         var encodedlogin = "";
         var feeling = "";
@@ -16,6 +17,7 @@ angular.module('starter.StateCtrl').controller('State3Ctrl', ['$scope', '$state'
         function getLocalStorage() {
             encodedlogin = localStorageService.get("ls-encoded");
             feeling = localStorageService.get("ls-feeling");
+            $scope.feeling=feeling;
             catid = localStorageService.get("ls-catid");
             
             //IMPORTANT include some random messages in the api
@@ -59,6 +61,7 @@ angular.module('starter.StateCtrl').controller('State3Ctrl', ['$scope', '$state'
             $scope.success = success;
             $scope.submitSuccess = true;
             stateid = $scope.success._id;
+            localStorageService.set("ls-stateid", stateid);
             updateUser();
         }
 

@@ -16,6 +16,7 @@ angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state',
         function loadStates() {
             var result = StateService.getMyStates(encodedlogin);
             result.success(getStatesSuccess).error(getStatesError);
+            $state.reload();
         }
 
         function getStatesSuccess(success) {

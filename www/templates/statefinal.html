@@ -1,8 +1,23 @@
-<ion-view view-title="Step 3">
+<ion-view view-title="Result" hide-back-button="true">
+<ion-nav-buttons side="left">
+  <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+  </button>
+</ion-nav-buttons>
+
   <ion-content padding="true">
   	<div id="container">
   		<!-- hier ook zien of er telkens een ander zinnetje kan komen? optioneel -->
-	    <h1>How about doing this?</h1>
+  		<div id="user-img">
+			<img ng-src="img/expressions/{{state.category.name}}.png">
+		</div>
+		<h3>So you are feeling {{state.category.name}}?</h3>
+	    <!-- <p class="quote">{{state.text}}</p> -->
+	    <p>Maybe this can help you:<p>
+	    <p class="quote">[Random notification based on feeling will appear here]</p>
+<!-- 	    <a class="button button-block button-positive ion-ios-heart" href="#/app/states"> Go to my expressions</a>
+	    <button class="button button-block button-positive ion-ios-heart" ng-click="toExpressions()">
+			Go to my expressions
+		</button>  -->
 	    
     </div>
   </ion-content>

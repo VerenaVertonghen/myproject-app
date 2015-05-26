@@ -29,6 +29,8 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
         function updateUserSuccess(success) {
             $scope.state = success;
             $state.go('app.statefinal');
+
+            //$state.go($state.cur'app.statefinal');
         }
 
         function updateUserError(error) {
@@ -62,6 +64,7 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
             $scope.success = success;
             $scope.submitSuccess = true;
             stateid = $scope.success._id;
+            localStorageService.set("ls-stateid", stateid);
             updateUser();
         }
 

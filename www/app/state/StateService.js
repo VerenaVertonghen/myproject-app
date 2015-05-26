@@ -4,7 +4,8 @@ angular.module('starter.StateService', []).factory('StateService', ['$http', '$q
             getStates: getStates,
             getMyStates: getMyStates,
             postState: postState,
-            postTextState: postTextState
+            postTextState: postTextState,
+            getMyState: getMyState
         };
 
         function getStates($encodedLogin) {
@@ -14,6 +15,20 @@ angular.module('starter.StateService', []).factory('StateService', ['$http', '$q
             var request = $http({
                 method: "get",
                 url: apiUrl + "/states",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                }
+            });
+            return request;
+        }
+
+        function getMyState($encodedLogin,$stateid) {
+            console.log("into Service getStates");
+            console.log("apiUrl", apiUrl);
+
+            var request = $http({
+                method: "get",
+                url: apiUrl + "/states/" + $stateid,
                 headers: {
                     'Authorization': 'Basic ' + $encodedLogin
                 }

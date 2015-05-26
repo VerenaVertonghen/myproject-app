@@ -29,18 +29,21 @@ angular.module('starter',
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
+      cache: false,
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
   })
 
   .state('register', {
+      cache: false,
       url: '/register',
       templateUrl: 'templates/register.html',
       controller: 'RegisterCtrl'
   })
 
   .state('app', {
+    cache: false,
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
@@ -48,6 +51,7 @@ angular.module('starter',
   })
 
   .state('app.profile', {
+    cache: false,
     url: "/profile",
     views: {
       'menuContent': {
@@ -58,6 +62,7 @@ angular.module('starter',
   })
 
   .state('app.caretaker', {
+    cache: false,
     url: "/caretaker",
     views: {
       'menuContent': {
@@ -67,6 +72,7 @@ angular.module('starter',
   })
 
   .state('app.settings', {
+    cache: false,
     url: "/settings",
     views: {
       'menuContent': {
@@ -76,6 +82,7 @@ angular.module('starter',
   })
 
   .state('app.assistance', {
+    cache: false,
     url: "/assistance",
     views: {
       'menuContent': {
@@ -84,16 +91,8 @@ angular.module('starter',
     }
   })
 
-  .state('app.language', {
-    url: "/language",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/language.html"
-      }
-    }
-  })
-
   .state('app.notifications', {
+    cache: false,
     url: "/notifications",
     views: {
       'menuContent': {
@@ -103,6 +102,7 @@ angular.module('starter',
   })
 
   .state('app.states', {
+    cache: false,
     url: "/states",
     views: {
       'menuContent': {
@@ -113,6 +113,7 @@ angular.module('starter',
   })
 
   .state('app.state1', {
+    cache: false,
     url: "/state1",
     views: {
       'menuContent': {
@@ -123,6 +124,7 @@ angular.module('starter',
   })
 
   .state('app.state2', {
+    cache: false,
     url: "/state2",
     views: {
       'menuContent': {
@@ -133,6 +135,7 @@ angular.module('starter',
   })
 
   .state('app.state3', {
+    cache: false,
     url: "/state3",
     views: {
       'menuContent': {
@@ -143,6 +146,7 @@ angular.module('starter',
   })
 
   .state('app.statefinal', {
+    cache: false,
     url: "/statefinal",
     views: {
       'menuContent': {
