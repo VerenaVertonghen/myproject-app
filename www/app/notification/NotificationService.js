@@ -5,7 +5,8 @@ angular.module('starter.NotificationService', []).factory('NotificationService',
             postNotification: postNotification,
             getNotification: getNotification,
             editNotification: editNotification,
-            deleteNotification: deleteNotification
+            deleteNotification: deleteNotification,
+            getNotificationAdvice: getNotificationAdvice
         };
 
         function getNotification($encodedLogin,$notificationid) {
@@ -35,21 +36,6 @@ angular.module('starter.NotificationService', []).factory('NotificationService',
             });
             return request;
         }
-
-        //get advice notification based on category
-        // function getNotifications($encodedLogin) {
-        //     console.log("into Service getStates");
-        //     console.log("apiUrl", apiUrl);
-            
-        //     var request = $http({
-        //         method: "get",
-        //         url: apiUrl + "/getadvice/"+$category,
-        //         headers: {
-        //             'Authorization': 'Basic ' + $encodedLogin
-        //         }
-        //     });
-        //     return request;
-        // }
 
         function postNotification($encodedLogin,$title,$text,$type,$categoryid) {
             console.log("into Service postNotification");
@@ -101,6 +87,21 @@ angular.module('starter.NotificationService', []).factory('NotificationService',
             var request = $http({
                 method: "delete",
                 url: apiUrl + "/notifications/" + $notificationid,
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                }
+            });
+            return request;
+        }
+
+        function getNotificationAdvice($encodedLogin,$categoryid) {
+            console.log("into Service getNotificationAdvice");
+            console.log("apiUrl", apiUrl);
+            console.log("$categoryid",$categoryid);
+            
+            var request = $http({
+                method: "get",
+                url: apiUrl + "/notificationsbycategory/"+ $categoryid +"/type/advice",
                 headers: {
                     'Authorization': 'Basic ' + $encodedLogin
                 }

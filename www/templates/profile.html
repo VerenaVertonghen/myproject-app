@@ -21,9 +21,11 @@
 		    <p>{{singleUser.email}}</p>
 	    </div>
     <!-- <p><a id="edit-link" href="#/edit" class="button icon-left ion-edit button-dark">Edit</a></p> -->
+    <div ng-show="!showadmin">
     <button class="button button-block button-positive ion-ios-heart" ng-click="expressFeelings()">
 		Express your feelings
 	</button> 
+	</div>
      <button class="button button-block button-assertive icon ion-log-out" ng-click="logout()">
 		Logout
 	</button>

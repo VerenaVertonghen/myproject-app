@@ -5,13 +5,16 @@
 .quote{
 	//color:$concrete;
 	color:$asbestos;
+	font-family:$light-font;
+	//font-family:$hairline-font;
 	//font-family:$lato-light-font;
-	font-family:$lato-regular-font;
+	//font-family:$lato-regular-font;
 }
 
 .emphasis{
 	color:$positive;
-	font-family:$lato-bold-font;
+	//font-family:$lato-bold-font;
+	font-family:$regular-font;
 }
 
 .help-block{
@@ -25,7 +28,9 @@
 
 .success-block{
 	color:$positive;
-	font-family:$lato-regular-font;
+	//font-family:$lato-regular-font;
+	font-family:$light-font;
+	//font-family:$hairline-font;
 	font-size:$font-size-small;
 	padding: 6px 0px 0px 16px;
 }
@@ -34,5 +39,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	//color:$concrete;
 	//color:$asbestos;
 	//font-family:$lato-light-font;
-	font-family:$lato-regular-font;
+	//font-family:$lato-regular-font;
+	font-family:$light-font;
+	//font-family:$hairline-font;
 }

@@ -1,5 +1,5 @@
-angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$state','$ionicHistory', 'StateService', 'localStorageService',
-    function($scope, $state, $ionicHistory, StateService, localStorageService) {
+angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$state','$ionicHistory', 'StateService', 'NotificationService', 'localStorageService',
+    function($scope, $state, $ionicHistory, StateService, NotificationService, localStorageService) {
         console.log('into StateFinalCtrl');
 
         // $state.reload();
@@ -10,6 +10,7 @@ angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$st
         var stateid = "";
 
         $scope.state = [];
+        $scope.notification = [];
 
         getLocalStorage();
         //$ionicHistory.clearHistory();
@@ -48,11 +49,26 @@ angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$st
 
             //$state.reload();
            // $route.reload();
+           loadNotification();
         }
 
         function getStateError(error) {
             $scope.error = error;
         }
+
+        function loadNotification() {
+            var result = NotificationService.getNotificationAdvice(encodedlogin,catid);
+            result.success(getNotificationSuccess).error(getNotificationError);
+        }
+
+        function getNotificationSuccess(success) {
+            $scope.notification = success;
+        }
+
+        function getNotificationError(error) {
+            $scope.error = error;
+        }
+
 
         $scope.toExpressions = function(){
         	$state.go('app.states');
