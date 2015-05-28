@@ -2,7 +2,7 @@ angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$st
     function($scope, $state, $ionicHistory, StateService, localStorageService) {
         console.log('into StateFinalCtrl');
 
-        $state.reload();
+        // $state.reload();
 
         var encodedlogin = "";
         var feeling = "";

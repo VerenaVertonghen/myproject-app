@@ -1,8 +1,10 @@
-angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state', 'StateService', 'localStorageService',
-    function($scope, $state, StateService, localStorageService) {
+angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state', 'StateService', 'CategoryService', 'localStorageService',
+    function($scope, $state, StateService, CategoryService, localStorageService) {
         console.log('into StateCtrl');
 
         $scope.allStates = [];
+        $scope.allCategories = [];
+        $scope.showadmin = false;
         
         var encodedlogin = "";
         
@@ -10,13 +12,21 @@ angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state',
 
         function getLocalStorage() {
             encodedlogin = localStorageService.get("ls-encoded");
+            var admin = localStorageService.get("ls-admin");
+            if(admin){
+                $scope.showadmin = true;
+            }else{
+                $scope.showadmin = false;
+            }
+            console.log("$scope.showadmin",$scope.showadmin);
             loadStates();
+            loadCategories();
         }
 
         function loadStates() {
             var result = StateService.getMyStates(encodedlogin);
             result.success(getStatesSuccess).error(getStatesError);
-            $state.reload();
+            // $state.reload();
         }
 
         function getStatesSuccess(success) {
@@ -25,6 +35,20 @@ angular.module('starter.StateCtrl').controller('StateCtrl', ['$scope', '$state',
         }
 
         function getStatesError(error) {
+            $scope.error = error;
+        }
+
+        function loadCategories() {
+            var result = CategoryService.getCategories(encodedlogin);
+            result.success(getCategoriesSuccess).error(getCategoriesError);
+        }
+
+        function getCategoriesSuccess(success) {
+            $scope.allCategories = success;
+            console.log($scope.allCategories);
+        }
+
+        function getCategoriesError(error) {
             $scope.error = error;
         }
 

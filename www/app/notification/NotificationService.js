@@ -1,16 +1,106 @@
 angular.module('starter.NotificationService', []).factory('NotificationService', ['$http', '$q', '$base64', 'apiUrl',
     function($http, $q, $base64, apiUrl) {
         return {
-            getNotifcations: getNotifcations
+            getNotifications: getNotifications,
+            postNotification: postNotification,
+            getNotification: getNotification,
+            editNotification: editNotification,
+            deleteNotification: deleteNotification
         };
 
-        function getNotifcations($encodedLogin) {
+        function getNotification($encodedLogin,$notificationid) {
+            console.log("into Service getStates");
+            console.log("apiUrl", apiUrl);
+            
+            var request = $http({
+                method: "get",
+                url: apiUrl + "/notifications/" + $notificationid,
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                }
+            });
+            return request;
+        }
+
+        function getNotifications($encodedLogin) {
             console.log("into Service getStates");
             console.log("apiUrl", apiUrl);
             
             var request = $http({
                 method: "get",
                 url: apiUrl + "/notifications",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                }
+            });
+            return request;
+        }
+
+        //get advice notification based on category
+        // function getNotifications($encodedLogin) {
+        //     console.log("into Service getStates");
+        //     console.log("apiUrl", apiUrl);
+            
+        //     var request = $http({
+        //         method: "get",
+        //         url: apiUrl + "/getadvice/"+$category,
+        //         headers: {
+        //             'Authorization': 'Basic ' + $encodedLogin
+        //         }
+        //     });
+        //     return request;
+        // }
+
+        function postNotification($encodedLogin,$title,$text,$type,$categoryid) {
+            console.log("into Service postNotification");
+            console.log("apiUrl", apiUrl);
+            console.log("encodedLogin",$encodedLogin);
+            console.log("title",$title);
+            console.log("text",$text);
+            console.log("type",$type);
+            
+            var request = $http({
+                method: "post",
+                url: apiUrl + "/notifications",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                },
+                data: {
+                    'title':$title,
+                    'text':$text,
+                    'type':$type,
+                    'category':$categoryid
+                }
+            });
+            return request;
+        }
+
+        function editNotification($encodedLogin,$notificationid,$title,$type,$text) {
+            console.log("into Service editNotification");
+            console.log("apiUrl", apiUrl);
+            
+            var request = $http({
+                method: "put",
+                url: apiUrl + "/notifications/" + $notificationid,
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                },
+                data: {
+                    'title':$title,
+                    'type':$type,
+                    'text':$text
+                }
+            });
+            return request;
+        }
+
+        function deleteNotification($encodedLogin,$notificationid) {
+            console.log("into Service deleteNotification");
+            console.log("apiUrl", apiUrl);
+            
+            var request = $http({
+                method: "delete",
+                url: apiUrl + "/notifications/" + $notificationid,
                 headers: {
                     'Authorization': 'Basic ' + $encodedLogin
                 }

@@ -1,8 +1,9 @@
-angular.module('starter.NotificationCtrl').controller('NotificationCtrl', ['$scope', '$state', 'NotificationService', 'localStorageService',
+angular.module('starter.NotificationCtrl').controller('Notification1Ctrl', ['$scope', '$state', 'NotificationService', 'localStorageService',
     function($scope, $state, NotificationService, localStorageService) {
-    	console.log('into NotificationCtrl');
+    	console.log('into Notification1Ctrl');
         
         $scope.allNotifications = [];
+        $scope.notification = {};
         
         var encodedlogin = "";
         // var admin = false;
@@ -30,16 +31,21 @@ angular.module('starter.NotificationCtrl').controller('NotificationCtrl', ['$sco
 
         function getNotificationsSuccess(success) {
             $scope.allNotifications = success;
-            console.log("success",success);
         }
 
         function getNotificationsError(error) {
             $scope.error = error;
         }
 
-
-        $scope.createNotification = function(){
-            $state.go('app.notification1');
+        $scope.nextStep = function(){
+            console.log("nextStep");
+            console.log("$scope.notification.type",$scope.notification.type)
+            if($scope.notification.type){
+                localStorageService.set("ls-type", $scope.notification.type);
+                $state.go('app.notification2');
+            }else{
+                alert("You have not selected a type.");
+            }  
         };
     }
 ]);

@@ -1,4 +1,20 @@
-angular.module('starter.UserCtrl').controller('LoginCtrl', ['$scope', '$state', 'UserService', 'localStorageService','$base64',
+angular.module('starter.UserCtrl')
+.config(function($provide) {
+    $provide.decorator('$state', function($delegate)
+    {
+        $delegate.go = function(to, params, options)
+        {
+            return $delegate.transitionTo(to, params, angular.extend(
+            {
+                reload: true,
+                inherit: true,
+                relative: $delegate.$current
+            }, options));
+        };
+        return $delegate;
+    });
+})
+.controller('LoginCtrl', ['$scope', '$state', 'UserService', 'localStorageService','$base64',
     function($scope, $state, UserService, localStorageService,$base64) {
         console.log('into LoginCtrl');
         
@@ -7,18 +23,25 @@ angular.module('starter.UserCtrl').controller('LoginCtrl', ['$scope', '$state', 
         $scope.inputType = 'password';
 
         var encodedlogin = "";
-        
-        getLocalStorage();
 
-        // Get Local Storage Data
-        function getLocalStorage() {
-            password = localStorageService.get("ls-encoded");
-        }
+        localStorageService.clearAll();
+
+        encodedlogin = localStorageService.get('ls-encoded');
+
+        console.log("before localStorageService.get('ls-encoded')",encodedlogin);
 
         // Do this when getUser is a success
         function getUserSuccess(success) {
             $scope.singleUser = success;
+
+            console.log("$scope.singleUser.role",$scope.singleUser.role);
+            if($scope.singleUser.role === "admin"){
+                localStorageService.set("ls-admin", true);    
+            } else{
+                localStorageService.set("ls-admin", false);  
+            }
             localStorageService.set("ls-encoded", encodedlogin);
+            console.log("after localStorageService.get('ls-encoded')",encodedlogin);
             $state.go('app.profile');
         }
 
@@ -49,4 +72,4 @@ angular.module('starter.UserCtrl').controller('LoginCtrl', ['$scope', '$state', 
             else $scope.inputType = 'password';
         };
     }
-]);
+    ]);

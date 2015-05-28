@@ -21,38 +21,40 @@ angular.module('starter',
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    
   });
 })
 
+//.constant("apiUrl","http://localhost:6001")
 .constant("apiUrl","http://careapp2.eu-gb.mybluemix.net")
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
-      cache: false,
       url: '/login',
+      cache: false,
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
   })
 
   .state('register', {
-      cache: false,
       url: '/register',
+      cache: false,
       templateUrl: 'templates/register.html',
       controller: 'RegisterCtrl'
   })
 
   .state('app', {
-    cache: false,
     url: "/app",
+    cache: false,
     abstract: true,
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
 
   .state('app.profile', {
-    cache: false,
     url: "/profile",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/profile.html",
@@ -62,8 +64,8 @@ angular.module('starter',
   })
 
   .state('app.caretaker', {
-    cache: false,
     url: "/caretaker",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/caretaker.html"
@@ -82,8 +84,8 @@ angular.module('starter',
   })
 
   .state('app.assistance', {
-    cache: false,
     url: "/assistance",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/assistance.html"
@@ -92,18 +94,52 @@ angular.module('starter',
   })
 
   .state('app.notifications', {
-    cache: false,
     url: "/notifications",
+    cache: false,
     views: {
       'menuContent': {
-        templateUrl: "templates/notifications.html"
+        templateUrl: "templates/notifications.html",
+        controller: 'NotificationCtrl'
+      }
+    }
+  })
+
+  .state('app.notification1', {
+    url: "/notification1",
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notification1.html",
+        controller: 'Notification1Ctrl'
+      }
+    }
+  })
+
+  .state('app.notification2', {
+    url: "/notification2",
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notification2.html",
+        controller: 'Notification2Ctrl'
+      }
+    }
+  })
+
+  .state('app.notificationfinal', {
+    url: "/notificationfinal",
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notificationfinal.html",
+        controller: 'NotificationFinalCtrl'
       }
     }
   })
 
   .state('app.states', {
-    cache: false,
     url: "/states",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/states.html",
@@ -113,8 +149,8 @@ angular.module('starter',
   })
 
   .state('app.state1', {
-    cache: false,
     url: "/state1",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/state1.html",
@@ -124,8 +160,8 @@ angular.module('starter',
   })
 
   .state('app.state2', {
-    cache: false,
     url: "/state2",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/state2.html",
@@ -135,8 +171,8 @@ angular.module('starter',
   })
 
   .state('app.state3', {
-    cache: false,
     url: "/state3",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/state3.html",
@@ -146,8 +182,8 @@ angular.module('starter',
   })
 
   .state('app.statefinal', {
-    cache: false,
     url: "/statefinal",
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: "templates/statefinal.html",

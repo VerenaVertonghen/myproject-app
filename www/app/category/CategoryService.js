@@ -4,11 +4,10 @@ angular.module('starter.CategoryService', []).factory('CategoryService', ['$http
             getCategories: getCategories
         };
 
-        function getCategories($encodedLogin,$feeling) {
+        function getCategories($encodedLogin) {
             console.log("into Service getCategories");
             console.log("apiUrl", apiUrl);
             console.log("encodedLogin",$encodedLogin);
-            console.log("feeling",$feeling);
             
             var request = $http({
                 method: "get",
@@ -17,6 +16,7 @@ angular.module('starter.CategoryService', []).factory('CategoryService', ['$http
                     'Authorization': 'Basic ' + $encodedLogin
                 }
             });
+            
             return request;
         }
     }

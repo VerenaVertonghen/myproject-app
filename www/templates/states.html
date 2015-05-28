@@ -1,19 +1,34 @@
 <ion-view view-title="Expressions">
-  <ion-content padding="true">
+  <ion-content padding="true"  has-header="true">
   	<div id="container">
-	    <button class="button button-block button-positive ion-ios-heart" ng-click="expressFeelings()">
-			Express your feelings
-		</button> 
-	    <p class="quote">Your latest entries:</p>
-	    <div class="flash-alert" ng-show="allStates.length==0">
-	      <p>You don't have any entries yet.</p>
-	    </div>
-	    <div class="states" ng-repeat="state in allStates | orderBy:'-created_at' | limitTo:10">
-		    <a class="item item-avatar">
-			    <img ng-src="img/expressions/{{state.category.name}}.png">
-			    <h2>{{state.category.name}}</h2>
-			    <p class="quote">{{state.text}}</p>
-		    </a>
+  		<div ng-show="showadmin">
+    		<h3>Admin functionality</h3>
+			<p>Overview of all the expressions</p>
+			<div class="center-div">
+				<div class="cat-div" ng-repeat="category in allCategories">
+					<div class="cat-img" >
+						<img ng-src="img/expressions/{{category.name}}.png">
+					</div>
+					<p class="quote">{{category.name}}</p>
+					<!-- <p class="quote">{{category.feeling}}</p> -->
+				</div>
+			</div>
+    	</div>
+  		<div ng-show="!showadmin">
+		    <button class="button button-block button-positive ion-ios-heart" ng-click="expressFeelings()">
+				Express your feelings
+			</button> 
+		    <p class="quote">Your latest entries:</p>
+		    <div class="flash-alert" ng-show="allStates.length==0">
+		      <p>You don't have any entries yet.</p>
+		    </div>
+		    <div class="states" ng-repeat="state in allStates | orderBy:'-created_at' | limitTo:10">
+			    <a class="item item-avatar">
+				    <img ng-src="img/expressions/{{state.category.name}}.png">
+				    <h2>{{state.category.name}}</h2>
+				    <p class="quote">{{state.text}}</p>
+			    </a>
+			</div>
 		</div>
     </div>
   </ion-content>

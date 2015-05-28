@@ -29,3 +29,10 @@
 	font-size:$font-size-small;
 	padding: 6px 0px 0px 16px;
 }
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+	//color:$concrete;
+	//color:$asbestos;
+	//font-family:$lato-light-font;
+	font-family:$lato-regular-font;
+}

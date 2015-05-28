@@ -38,7 +38,7 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
         }
 
         function loadCategories() {
-            var result = CategoryService.getCategories(encodedlogin,feeling);
+            var result = CategoryService.getCategories(encodedlogin);
             result.success(getCategoriesSuccess).error(getCategoriesError);
 
             if(feeling == 'up'){
