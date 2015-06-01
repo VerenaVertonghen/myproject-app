@@ -26,41 +26,11 @@
     src: url("../fonts/Montserrat-Hairline.otf");
 }
 
-@font-face {
-    font-family: "LatoBold";
-    src: url("../fonts/Lato-Bold.ttf");
-}
-
-@font-face {
-    font-family: "LatoRegular";
-    src: url("../fonts/Lato-Regular.ttf");
-}
-
-@font-face {
-    font-family: "LatoLight";
-    src: url("../fonts/Lato-Light.ttf");
-}
-
 $black-font: 'MontserratBlack', Helvetica, Arial, sans-serif;
 $bold-font: 'MontserratBold', Helvetica, Arial, sans-serif;
 $regular-font: 'MontserratRegular', Helvetica, Arial, sans-serif;
 $light-font: 'MontserratLight', Helvetica, Arial, sans-serif;
 $hairline-font: 'MontserratHairline', Helvetica, Arial, sans-serif;
-
-$lato-light-font: 'LatoLight', Helvetica, Arial, sans-serif;
-$lato-regular-font: 'LatoRegular', Helvetica, Arial, sans-serif;
-$lato-bold-font: 'LatoBold', Helvetica, Arial, sans-serif;
-
-// MY VARIABLES
-// -------------------------------
-
-// //Primary colours
-// $mint: 						#c7ffea;
-
-// //Secondary colours
-// $lemon: 					#ebff3b;
-
-
 
 // Color swatches FLAT UI
 $turquoise:                 #1abc9c;
@@ -87,18 +57,17 @@ $pumpkin:                   #d35400;
 $alizarin:                  #e74c3c;
 $pomegranate:               #c0392b;
 
-// $clouds:                    #ecf0f1;
-// $silver:                    #bdc3c7;
-
-// $concrete:                  #95a5a6;
-// $asbestos:                  #7f8c8d;
-
 $clouds:                    #f5f7fa;
 $silver:                    #e6e9ed;
 
 $concrete:                  #656d78;
 $asbestos:                  #434a54;
 
+//Color swatches FLAT UI 2
+$deep-sea:                  #112539;
+$grapefruit:                #da4453;
+$mint:                      #37bc9b;
+$lemon:                     #fbcf61;
 
 // Social colors
 $social-pinterest:          #cb2028;
@@ -113,12 +82,6 @@ $white: 					#FFFFFF;
 $black: 					#000000;
 $gray-dark:                 $concrete;
 $gray-light:                $silver;
-
-//Primary colours
-//$dark-blue:                 #021022;
-$dark-blue:                 #112539;
-$yellow:                    #e7f99d;
-$red:                       #da4453;
 
 //image
 $my-avatar:75px;
@@ -139,14 +102,38 @@ $big-font-size: 1.7em;
 $light:                           $white !default;
 $stable:                          $clouds !default;
 $positive:                        $green-sea !default;
-$calm:                            #11c1f3 !default;
+$calm:                            $silver !default;
 $balanced:                        $green-sea !default;
-$energized:                       $sun-flower !default;
-$assertive:                       $red !default;
+$energized:                       $lemon !default;
+$assertive:                       $grapefruit !default;
 $royal:                           $wisteria !default;
-$dark:                            $dark-blue !default;
-//$dark:                            $green-sea !default;
+$dark:                            $deep-sea !default;
 
+
+// Theme 1
+// -------------------------------
+
+$base-background-color:           $light !default;
+$base-color:                      $dark !default;
+$placeholder:                     $base-background-color !default;
+$button-light-border:             $light !default;
+$start-border:                    $dark !default;
+
+// Theme 2
+// -------------------------------
+
+// $base-background-color:           $green-sea !default;
+// $base-color:                      $dark !default;
+// $placeholder:                     $base-background-color !default;
+// $button-light-border:             $light;
+
+// Theme 3
+// -------------------------------
+
+// $base-background-color:           $light !default;
+// $base-color:                      $dark !default;
+// $placeholder:                     $base-background-color !default;
+// $button-light-border:             $dark;
 
 // Base
 // -------------------------------
@@ -159,7 +146,7 @@ $font-family-monospace:           monospace !default;
 $font-family-base:                $font-family-sans-serif !default;
 $font-size-base:                  14px !default;
 $font-size-large:                 18px !default;
-$font-size-small:                 11px !default;
+$font-size-small:                 12px !default;
 
 $line-height-base:                1.428571429 !default; // 20/14
 $line-height-computed:            floor($font-size-base * $line-height-base) !default; // ~20px
@@ -169,9 +156,6 @@ $line-height-small:               1.5 !default;
 $headings-font-family:            $font-family-base !default;
 $headings-font-weight:            500 !default;
 $headings-line-height:            1.2 !default;
-
-$base-background-color:           #fff !default;
-$base-color:                      #000 !default;
 
 $link-color:                      $positive !default;
 $link-hover-color:                darken($link-color, 15%) !default;
@@ -229,13 +213,13 @@ $button-bar-button-padding:       8px !default;
 $button-bar-button-icon-size:     20px !default;
 
 $button-light-bg:                 $light !default;
-$button-light-text:               #444 !default;
-$button-light-border:             #ddd !default;
+$button-light-text:               $dark !default;
+// $button-light-border:             #ddd !default;
 $button-light-active-bg:          #fafafa !default;
 $button-light-active-border:      #ccc !default;
 
 $button-stable-bg:                $stable !default;
-$button-stable-text:              #444 !default;
+$button-stable-text:              $dark !default;
 $button-stable-border:            #b2b2b2 !default;
 $button-stable-active-bg:         #e5e5e5 !default;
 $button-stable-active-border:     #a2a2a2 !default;
@@ -278,9 +262,9 @@ $button-royal-active-border:      darken($royal, 8%) !default;
 
 $button-dark-bg:                  $dark !default;
 $button-dark-text:                #fff !default;
-$button-dark-border:              #111 !default;
-$button-dark-active-bg:           #262626 !default;
-$button-dark-active-border:       #000 !default;
+$button-dark-border:              darken($dark,5%) !default;
+$button-dark-active-bg:           darken($dark,5%) !default;
+$button-dark-active-border:       darken($dark,5%)  !default;
 
 $button-default-bg:               $button-stable-bg !default;
 $button-default-text:             $button-stable-text !default;
@@ -426,6 +410,7 @@ $tabs-striped-border-width:       2px !default;
 
 $item-font-size:                  16px !default;
 $item-border-width:               1px !default;
+// $item-border-width:               4px !default;
 $item-padding:                    16px !default;
 
 $item-button-font-size:           18px !default;
@@ -565,11 +550,11 @@ $input-height-small:              (floor($font-size-small * $line-height-small) 
 $input-bg:                        $light !default;
 $input-bg-disabled:               $stable !default;
 
-$input-color:                     #111 !default;
+$input-color:                     $base-color !default;
 $input-border:                    $item-default-border !default;
 $input-border-width:              $item-border-width !default;
-$input-label-color:               $dark !default;
-$input-color-placeholder:         darken($silver,10) !default;
+$input-label-color:               $base-color !default;
+$input-color-placeholder:         darken($placeholder,20) !default;
 
 
 // Progress

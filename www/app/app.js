@@ -26,7 +26,7 @@ angular.module('starter',
 })
 
 //.constant("apiUrl","http://localhost:6001")
-.constant("apiUrl","http://careapp2.eu-gb.mybluemix.net")
+.constant("apiUrl","http://careapp3.eu-gb.mybluemix.net")
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider

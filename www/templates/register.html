@@ -1,6 +1,7 @@
 <ion-view title="Registreer" left-buttons="leftButtons" right-buttons="rightButtons">
-  <ion-content has-header="true" padding="true">
-    <div id="register-img"><img src="img/heart.png"></div>
+  <ion-content has-header="true" padding="false">
+  <div id="border-div">
+    <div id="register-img"><img src="img/logo/logo.svg"></div>
     <form name="userForm" ng-submit="register(userForm.$valid)" novalidate>
     <div class="list">
       <label class="item item-input">
@@ -49,16 +50,18 @@
         </li>
       </div>
     </div>
-
-      <button type="submit" ng-disabled="userForm.$invalid" class="button button-block button-positive ion-android-create">
+      <div class="button-padding">
+      <button type="submit" ng-disabled="userForm.$invalid" class="button button-block button-dark ion-android-create">
         Signup
       </button>
       </form>
       <button class="button button-block button-dark ion-arrow-right-c " ng-click="toLogin()">
         Go to login
       </button>
+      </div>
       <div ng-show="submitError" class="flash-alert">
           Signup failed, try again.
+      </div>
       </div>
   </ion-content>
 </ion-view>

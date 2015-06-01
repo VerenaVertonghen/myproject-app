@@ -64,4 +64,11 @@
     @include button-outline($button-dark-bg);
     @include my-shadow($button-dark-bg);
   }
+
+  // &.button-dark {
+  //   @include button-style($button-light-bg, $button-light-border, $button-light-active-bg, $button-light-active-border, $button-light-text);
+  //   @include button-clear($button-light-bg);
+  //   @include button-outline($button-light-bg);
+  //   @include my-shadow($button-light-bg);
+  // }
 } 

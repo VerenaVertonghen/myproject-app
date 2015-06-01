@@ -2,8 +2,13 @@
   <ion-content padding="true">
     <div id="container">
     	<div class="center">
-    		<div ng-show="showadmin">
-	    		<div id="user-img" ng-show="allStates.length==0">
+    		<div>
+	    		<div id="user-img">
+			      	<img src="img/expressions/default.png">
+			    </div>
+		    </div>
+    		<!-- <div ng-show="showadmin">
+	    		<div id="user-img">
 			      	<img src="img/expressions/default.png">
 			    </div>
 		    </div>
@@ -12,10 +17,10 @@
 		    	<div id="user-img" ng-show="allStates.length==0">
 			      	<img src="img/expressions/default.png">
 			    </div>
-				<div id="user-img" ng-repeat="state in allStates | orderBy:'-created_at' | limitTo:1">
+				<div id="user-img" ng-show="!allStates.length==0" ng-repeat="state in allStates | orderBy:'-created_at' | limitTo:1">
 					<img ng-src="img/expressions/{{state.category.name}}.png">
 				</div>
-			</div>
+			</div> -->
 
 			<h3 class="cap">{{singleUser.firstname}} {{singleUser.lastname}}</h3>
 		    <p>{{singleUser.email}}</p>

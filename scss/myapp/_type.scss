@@ -6,6 +6,7 @@
 	//color:$concrete;
 	color:$asbestos;
 	font-family:$light-font;
+	font-size:$font-size-small !important;
 	//font-family:$hairline-font;
 	//font-family:$lato-light-font;
 	//font-family:$lato-regular-font;
@@ -19,7 +20,6 @@
 
 .help-block{
 	color:$assertive;
-	font-family:$lato-regular-font;
 	font-size:$font-size-small;
 	// margin-left:1.3em;
 	// margin-top:0.1em;
@@ -42,4 +42,31 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	//font-family:$lato-regular-font;
 	font-family:$light-font;
 	//font-family:$hairline-font;
+}
+
+/* FIX */
+.item{
+	background:none !important;
+}
+
+.item-select select{
+	color:$positive;
+}
+
+#border-div{
+	.item{
+		border-color:$start-border !important;
+	}
+	.checkbox input:before, .checkbox .checkbox-icon:before{
+		border-color:$start-border !important;
+	}
+}
+
+// input:-webkit-autofill{
+//   background-color: #fff !important;
+//   color: #fff !important;
+// }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
 }

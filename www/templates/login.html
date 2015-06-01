@@ -1,6 +1,7 @@
 <ion-view title="Login" left-buttons="leftButtons" right-buttons="rightButtons">
-  <ion-content has-header="true" padding="true">
-    <div id="login-img"><img src="img/heart.png"></div>
+  <ion-content has-header="true" padding="false">
+    <div id="border-div">
+    <div id="login-img"><img src="img/logo/logo.svg"></div>
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Username:</span>
@@ -20,8 +21,8 @@
         </li>
       </div>
     </div>
-    <div class="buttons">
-      <button class="button button-block button-positive ion-log-in" ng-click="login(user)">
+    <div class="button-padding">
+      <button class="button button-block button-dark ion-log-in" ng-click="login(user)">
         Login
       </button> 
       <button class="button button-block button-dark ion-arrow-right-c" ng-click="toRegister()">
@@ -30,6 +31,7 @@
     </div>
     <div ng-show="loginError" class="flash-alert">
         Login failed, did you forget your password?
+    </div>
     </div>
   </ion-content>
 </ion-view>
