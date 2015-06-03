@@ -10,7 +10,6 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
         
         var encodedlogin = "";
         var feeling = "";
-        var catid = "";
         var stateid = "";
 
         getLocalStorage();
@@ -74,6 +73,7 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
 
         $scope.postState = function(){
             if($scope.categoryid.id){
+                localStorageService.set("ls-catid", $scope.categoryid.id);
                 var result = StateService.postState(encodedlogin,$scope.categoryid.id);
                 result.success(createStateSuccess).error(createStateError);
             }else{
@@ -83,7 +83,7 @@ angular.module('starter.StateCtrl').controller('State2Ctrl', ['$scope', '$state'
 
         $scope.nextStep = function(){
             if($scope.categoryid.id){
-                catid = localStorageService.set("ls-catid", $scope.categoryid.id);
+                localStorageService.set("ls-catid", $scope.categoryid.id);
                 $state.go('app.state3');
             }else{
                 alert("You have not selected a feeling.");

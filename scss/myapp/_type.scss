@@ -47,6 +47,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 /* FIX */
 .item{
 	background:none !important;
+	border-radius: $button-border-radius;
 }
 
 .item-select select{
@@ -60,6 +61,13 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	.checkbox input:before, .checkbox .checkbox-icon:before{
 		border-color:$start-border !important;
 	}
+}
+
+.not-rounded{
+	.item{
+		border-radius: 0px !important;
+	}
+	
 }
 
 // input:-webkit-autofill{

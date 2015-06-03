@@ -14,9 +14,9 @@ angular.module('starter',
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
+    // if (window.cordova && window.cordova.plugins.Keyboard) {
+    //   cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    // }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
@@ -25,8 +25,10 @@ angular.module('starter',
   });
 })
 
-//.constant("apiUrl","http://localhost:6001")
-.constant("apiUrl","http://careapp3.eu-gb.mybluemix.net")
+//.constant("apiUrl","http://localhost:6002")
+.constant("apiUrl","http://cosycare.eu-gb.mybluemix.net")
+.constant("welcomeNotificationId","556d7a25a198311f0033d3fb")
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -99,6 +101,17 @@ angular.module('starter',
     views: {
       'menuContent': {
         templateUrl: "templates/notifications.html",
+        controller: 'NotificationsCtrl'
+      }
+    }
+  })
+
+  .state('app.notification', {
+    url: "/notifications/:notificationId",
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: "templates/notification.html",
         controller: 'NotificationCtrl'
       }
     }
@@ -143,6 +156,17 @@ angular.module('starter',
     views: {
       'menuContent': {
         templateUrl: "templates/states.html",
+        controller: 'StatesCtrl'
+      }
+    }
+  })
+
+  .state('app.state', {
+    url: "/states/:stateId",
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: "templates/state.html",
         controller: 'StateCtrl'
       }
     }

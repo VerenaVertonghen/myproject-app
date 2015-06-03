@@ -6,8 +6,24 @@ angular.module('starter.NotificationService', []).factory('NotificationService',
             getNotification: getNotification,
             editNotification: editNotification,
             deleteNotification: deleteNotification,
-            getNotificationAdvice: getNotificationAdvice
+            getNotificationAdvice: getNotificationAdvice,
+            getMyNotifications: getMyNotifications
         };
+
+        function getMyNotifications($encodedLogin) {
+            console.log("into Service getMyNotifications");
+            console.log("apiUrl", apiUrl);
+            console.log("$encodedLogin", $encodedLogin);
+
+            var request = $http({
+                method: "get",
+                url: apiUrl + "/mynotifications",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                }
+            });
+            return request;
+        }
 
         function getNotification($encodedLogin,$notificationid) {
             console.log("into Service getStates");

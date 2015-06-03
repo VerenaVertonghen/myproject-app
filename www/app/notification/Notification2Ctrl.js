@@ -4,7 +4,7 @@ angular.module('starter.NotificationCtrl').controller('Notification2Ctrl', ['$sc
         
         var encodedlogin = "";
         var notificationtype = "";
-        // var admin = false;
+
         $scope.allCategories = [];
         $scope.showadmin = false;
         $scope.submitSuccess = false;

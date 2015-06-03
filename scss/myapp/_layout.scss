@@ -1,7 +1,7 @@
 /* LAYOUT
 ----------------------------------------*/
 
-#all-states{
+#big-avatar{
 
 	.item-avatar{
 		min-height: 100px;
@@ -63,8 +63,8 @@ h1{
 }
 
 .cat-div{
-	float:left;
-	padding:0.3em;
+	//float:left;
+	//padding:0.3em;
 	text-align:center;
 }
 
@@ -74,7 +74,7 @@ h1{
 		//float:left;
 	//margin-right:0.5em;
 	//padding: 1em;
-	width:10em;
+	width:8em;
 	}
 	
 }
@@ -105,9 +105,10 @@ h1{
 }
 
 .flash-alert{
-	background:$energized;
-	//font-family:$bold-font;
-	color:$light;
+	background:$stable;
+	color:$concrete;
+	font-family:$light-font;
+	font-size:$font-size-small !important;
 	padding:1em 1em;
 	border-radius: $border-radius-base;
 }

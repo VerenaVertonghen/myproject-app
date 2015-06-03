@@ -18,6 +18,7 @@
 		<button class="button button-block button-positive ion-arrow-right-c" ng-click="nextStep('story')">
 			Story
 		</button>  --> 
+		<div id="border-div">
 		<div class="align-left">
 			<ion-radio ng-model="notification.type" value="advice">advice</ion-radio>
 			<ion-radio ng-model="notification.type" value="quote">quote</ion-radio>
@@ -27,6 +28,7 @@
 		<button ng-disabled="!notification.type" class="button button-block button-positive ion-arrow-right-c" ng-click="nextStep()">
 			Next step
 		</button> 
+		</div>
     </div>
   </ion-content>
 </ion-view>

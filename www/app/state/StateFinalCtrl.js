@@ -1,5 +1,5 @@
-angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$state','$ionicHistory', 'StateService', 'NotificationService', 'localStorageService',
-    function($scope, $state, $ionicHistory, StateService, NotificationService, localStorageService) {
+angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$state','$ionicHistory', 'StateService', 'NotificationService', 'UserService', 'localStorageService',
+    function($scope, $state, $ionicHistory, StateService, NotificationService, UserService, localStorageService) {
         console.log('into StateFinalCtrl');
 
         // $state.reload();
@@ -8,6 +8,7 @@ angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$st
         var feeling = "";
         var catid = "";
         var stateid = "";
+        var notificationid = "";
 
         $scope.state = [];
         $scope.notification = [];
@@ -40,16 +41,7 @@ angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$st
         function getStateSuccess(success) {
             $scope.state = success;
             console.log($scope.state);
-
-   			//$state.transitionTo($state.current, $state.$current.params, {
-			//     reload: true,
-			//     inherit: false,
-			//     notify: true
-			// });
-
-            //$state.reload();
-           // $route.reload();
-           loadNotification();
+            loadNotification();
         }
 
         function getStateError(error) {
@@ -63,12 +55,29 @@ angular.module('starter.StateCtrl').controller('StateFinalCtrl', ['$scope', '$st
 
         function getNotificationSuccess(success) {
             $scope.notification = success;
+            console.log(" notification success",success);
+            console.log("$scope.notification._id",$scope.notification._id);
+            notificationid = $scope.notification._id;
+            addNotificationToUser();
         }
 
         function getNotificationError(error) {
             $scope.error = error;
         }
 
+        function addNotificationToUser() {
+            var result = UserService.addNotificationToUser(encodedlogin,notificationid);
+            result.success(addNotificationToUserSuccess).error(addNotificationToUserError);
+        }
+
+        function addNotificationToUserSuccess(success) {
+            $scope.notificationsuccess = success;
+            console.log("addNotificationToUserSuccess success",success);
+        }
+
+        function addNotificationToUserError(error) {
+            $scope.error = error;
+        }
 
         $scope.toExpressions = function(){
         	$state.go('app.states');

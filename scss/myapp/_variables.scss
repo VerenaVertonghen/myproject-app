@@ -68,6 +68,11 @@ $deep-sea:                  #112539;
 $grapefruit:                #da4453;
 $mint:                      #37bc9b;
 $lemon:                     #fbcf61;
+$strawberry:                #EB4D5C;
+$melon:                     #A6D6A1;
+$aubergine:                 #3C3865;
+$light-chrome:              darken($silver,10%);
+$chrome:                    darken($silver,30%);
 
 // Social colors
 $social-pinterest:          #cb2028;
@@ -99,19 +104,23 @@ $big-font-size: 1.7em;
 // Colors
 // -------------------------------
 
+
+
+
+
+
+
+// Theme 1 - Regular
+// -------------------------------
+$dark:                            $deep-sea !default;
+$positive:                        $green-sea !default;
 $light:                           $white !default;
 $stable:                          $clouds !default;
-$positive:                        $green-sea !default;
 $calm:                            $silver !default;
 $balanced:                        $green-sea !default;
 $energized:                       $lemon !default;
 $assertive:                       $grapefruit !default;
 $royal:                           $wisteria !default;
-$dark:                            $deep-sea !default;
-
-
-// Theme 1
-// -------------------------------
 
 $base-background-color:           $light !default;
 $base-color:                      $dark !default;
@@ -119,21 +128,63 @@ $placeholder:                     $base-background-color !default;
 $button-light-border:             $light !default;
 $start-border:                    $dark !default;
 
-// Theme 2
+// Theme 2 - Calm
 // -------------------------------
+// $dark:                            $deep-sea !default;
+// $positive:                        $green-sea !default;
+// $light:                           $white !default;
+// $stable:                          $clouds !default;
+// $calm:                            $silver !default;
+// $balanced:                        $green-sea !default;
+// $energized:                       $lemon !default;
+// $assertive:                       $grapefruit !default;
+// $royal:                           $wisteria !default;
 
 // $base-background-color:           $green-sea !default;
 // $base-color:                      $dark !default;
 // $placeholder:                     $base-background-color !default;
 // $button-light-border:             $light;
+// $start-border:                    $dark !default;
 
-// Theme 3
+// Theme 3 - Spring
 // -------------------------------
+
+// $dark:                            $strawberry !default;
+// $positive:                        $melon !default;
+// $light:                           $white !default;
+// $stable:                          $clouds !default;
+// $calm:                            $silver !default;
+// $balanced:                        $green-sea !default;
+// $energized:                       $lemon !default;
+// $assertive:                       $grapefruit !default;
+// $royal:                           $wisteria !default;
 
 // $base-background-color:           $light !default;
 // $base-color:                      $dark !default;
 // $placeholder:                     $base-background-color !default;
-// $button-light-border:             $dark;
+// $button-light-border:             $light;
+// $start-border:                    $dark !default;
+
+// Theme 4 - Neutral
+// -------------------------------
+
+// $dark:                            $asbestos !default;
+// $positive:                        $chrome !default;
+// $light:                           $white !default;
+// $stable:                          $clouds !default;
+// $calm:                            $chrome !default;
+// $balanced:                        $chrome !default;
+// $energized:                       $light-chrome !default;
+// $assertive:                       $chrome !default;
+// $royal:                           $chrome !default;
+
+// $base-background-color:           $light !default;
+// $base-color:                      $dark !default;
+// $placeholder:                     $base-background-color !default;
+// $button-light-border:             $light;
+// $start-border:                    $dark !default;
+
+
 
 // Base
 // -------------------------------

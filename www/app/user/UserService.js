@@ -1,20 +1,23 @@
-angular.module('starter.UserService', []).factory('UserService', ['$http', '$q', '$base64', 'apiUrl',
-    function($http, $q, $base64, apiUrl) {
+angular.module('starter.UserService', []).factory('UserService', ['$http', '$q', '$base64', 'apiUrl', 'welcomeNotificationId',
+    function($http, $q, $base64, apiUrl, welcomeNotificationId) {
         return {
             getUser: getUser,
             createUser: createUser,
             updateUserState: updateUserState,
-            addStateToUser: addStateToUser
+            addStateToUser: addStateToUser,
+            addNotificationToUser: addNotificationToUser
         };
 
         function getUser($encodedLogin) {
             console.log("into Service getUser");
-            console.log("$encodedLogin", $encodedLogin);
+            console.log("$encodedLogin");
+            console.log($encodedLogin);
 
             var request = $http({
                 method: "get",
                 url: apiUrl + "/myprofile",
                 headers: {
+                    // 'Host': 'http://cosycare.eu-gb.mybluemix.net/',
                     'Authorization': 'Basic ' + $encodedLogin
                 }
             });
@@ -22,7 +25,7 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
         }
 
         function addStateToUser($encodedLogin,$stateid) {
-            console.log("into Service getMyStates");
+            console.log("into Service addStateToUser");
             console.log("apiUrl", apiUrl);
             console.log("encodedLogin",$encodedLogin);
             console.log("stateid",$stateid);
@@ -40,6 +43,25 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
             return request;
         }
 
+        function addNotificationToUser($encodedLogin,$notificationid) {
+            console.log("into Service addNotificationToUser");
+            console.log("apiUrl", apiUrl);
+            console.log("encodedLogin",$encodedLogin);
+            console.log("notificationid",$notificationid);
+
+            var request = $http({
+                method: "post",
+                url: apiUrl + "/addnotificationtouser",
+                headers: {
+                    'Authorization': 'Basic ' + $encodedLogin
+                },
+                data: {
+                    'notification':$notificationid
+                }
+            });
+            return request;
+        }
+
         function createUser($email,$firstname,$lastname,$password) {
             console.log("into Service createUser");
 
@@ -50,14 +72,17 @@ angular.module('starter.UserService', []).factory('UserService', ['$http', '$q',
                     "firstname": $firstname,
                     "lastname": $lastname,
                     "password": $password,
-                    "email": $email
+                    "email": $email,
+                    "notifications": [
+                        welcomeNotificationId
+                    ]
                 }
             });
             return request;
         }
 
         function updateUserState($encodedLogin,$stateid) {
-            console.log("into Service createUser");
+            console.log("into Service updateUserState");
             console.log("$encodedLogin",$encodedLogin);
             console.log("$stateid",$stateid);
 

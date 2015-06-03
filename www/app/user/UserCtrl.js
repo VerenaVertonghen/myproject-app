@@ -26,9 +26,6 @@ angular.module('starter.UserCtrl')
         
         getLocalStorage();
 
-        function clearLS(){
-
-        }
 
         function getLocalStorage() {
             encodedlogin = localStorageService.get("ls-encoded");

@@ -24,11 +24,11 @@ angular.module('starter.UserCtrl')
 
         var encodedlogin = "";
 
-        localStorageService.clearAll();
+        //localStorageService.clearAll();
 
-        encodedlogin = localStorageService.get('ls-encoded');
+        //encodedlogin = localStorageService.get('ls-encoded');
 
-        console.log("before localStorageService.get('ls-encoded')",encodedlogin);
+        //console.log("before localStorageService.get('ls-encoded')",encodedlogin);
 
         // Do this when getUser is a success
         function getUserSuccess(success) {
@@ -47,6 +47,7 @@ angular.module('starter.UserCtrl')
 
         // Do this when getUser failed
         function getUserError(error) {
+            console.log(error);
             $scope.error = error;
             $scope.loginError = true;
             $state.go('login');
@@ -54,8 +55,15 @@ angular.module('starter.UserCtrl')
 
         // Login 
         $scope.login = function(user) {
-            $scope.loginError = false;
-            encodedlogin = $base64.encode(user.username + ":" + user.password);            
+            console.log('into login');
+            console.log('username');
+            console.log('password');
+            console.log(user.username);
+            console.log(user.password);
+            // $scope.loginError = false;
+            encodedlogin = $base64.encode(user.username + ":" + user.password);
+            console.log("encodedlogin");
+            console.log(encodedlogin);
             var result = UserService.getUser(encodedlogin);
             result.success(getUserSuccess).error(getUserError);
         };
