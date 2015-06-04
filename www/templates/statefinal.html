@@ -6,19 +6,12 @@
 
   <ion-content padding="true"  has-header="true">
   	<div id="container">
-  		<!-- hier ook zien of er telkens een ander zinnetje kan komen? optioneel -->
   		<div id="user-img">
 			<img ng-src="img/expressions/{{state.category.name}}.png">
 		</div>
 		<h3>So you are feeling {{state.category.name}}?</h3>
-	    <!-- <p class="quote">{{state.text}}</p> -->
 	    <h4>{{notification.title}}</h4>
-	    <p class="quote">{{notification.text}}</p>
-<!-- 	    <a class="button button-block button-positive ion-ios-heart" href="#/app/states"> Go to my expressions</a>
-	    <button class="button button-block button-positive ion-ios-heart" ng-click="toExpressions()">
-			Go to my expressions
-		</button>  -->
-	    
+	    <p class="textbox">{{notification.text}}</p>
     </div>
   </ion-content>
 </ion-view>

@@ -18,12 +18,12 @@
   			<h3>View your expressions</h3>
 		    <button class="button button-block button-positive ion-ios-heart" ng-click="expressFeelings()">
 				Express your feelings
-			</button> 		  
+			</button> 	 
 		    <div class="flash-alert" ng-show="allStates.length==0">
 		      <p>You don't have any entries yet.</p>
 		    </div>
 		    <div id="big-avatar" class="states" ng-repeat="state in allStates | orderBy:'-created_at' | limitTo:10">
-			    <a class="item item-avatar">
+			    <a href="#/app/states/{{state._id}}" class="item item-avatar">
 				    <img ng-src="img/expressions/{{state.category.name}}.png">
 				    <h2>{{state.category.name}}</h2>
 				    <p class="quote">{{state.text | limitTo:30}} ...</p>
